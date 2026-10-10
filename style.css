@@ -1,0 +1,470 @@
+/* ==========================================================
+   IslandCirKit | Dark luxe theme
+   Change a color once here and it updates across the site.
+   ========================================================== */
+:root {
+  --bg: #0B0D12;          /* page background */
+  --card: #14171F;        /* post cards */
+  --text: #E8E6E1;        /* main text */
+  --muted: #9A9890;       /* secondary text */
+  --gold: #C9A44C;        /* main accent */
+  --teal: #2DD4BF;        /* glow accent */
+  --border: #262A35;      /* soft card borders */
+}
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Visible keyboard focus */
+a:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 4px;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  padding: 4.5rem 0 2.5rem;
+  border-bottom: 1px solid var(--gold);
+}
+
+.logo {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(2.4rem, 8vw, 3.8rem);
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  color: var(--gold);
+  text-shadow: 0 0 40px color-mix(in srgb, var(--teal) 25%, transparent); /* faint teal glow */
+}
+
+.tagline {
+  margin-top: 0.75rem;
+  color: var(--muted);
+}
+
+/* ---------- Navigation ---------- */
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.nav a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-bottom: 4px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+/* ---------- Posts ---------- */
+.posts {
+  display: grid;
+  gap: 1.5rem;
+  padding: 3rem 0;
+}
+
+.post-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--gold);
+  border-radius: 6px;
+  padding: 2rem;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.post-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 28px color-mix(in srgb, var(--teal) 12%, transparent);
+}
+
+.post-card h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 1.3;
+}
+
+.post-card h2 a:hover {
+  color: var(--gold);
+}
+
+.post-card p {
+  margin-top: 0.75rem;
+  color: var(--muted);
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--gold);
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.read-more:hover {
+  color: var(--teal);
+  border-bottom-color: var(--teal);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 0 3rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 520px) {
+  .site-header { padding-top: 3rem; }
+  .nav { gap: 1.25rem; }
+  .post-card { padding: 1.5rem; }
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+/* ==========================================================
+   Article pages
+   ========================================================== */
+
+/* Smaller header on article pages */
+.site-header.compact {
+  padding: 2.5rem 0 1.5rem;
+}
+
+.site-header.compact .logo {
+  font-size: 1.6rem;
+}
+
+.site-header.compact .nav {
+  margin-top: 1.25rem;
+}
+
+.article {
+  padding: 3rem 0 2rem;
+}
+
+.article h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.article .lead {
+  margin-top: 1.25rem;
+  font-size: 1.2rem;
+  color: var(--muted);
+}
+
+.article h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 500;
+  font-size: 1.6rem;
+  color: var(--gold);
+  margin-top: 2.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.article p {
+  margin-top: 1rem;
+}
+
+.article ul {
+  margin-top: 1rem;
+  padding-left: 1.25rem;
+}
+
+.article li {
+  margin-top: 0.6rem;
+}
+
+.article li::marker {
+  color: var(--gold);
+}
+
+.article strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.article blockquote {
+  margin-top: 2.5rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--card);
+  border-left: 2px solid var(--teal);
+  border-radius: 0 6px 6px 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+/* Previous / next links at the bottom */
+.article-nav {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--gold);
+}
+
+.article-nav a {
+  color: var(--gold);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.article-nav a:hover {
+  color: var(--teal);
+}
+
+/* ==========================================================
+   Smart Devices categories
+   ========================================================== */
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.categories a {
+  padding: 0.5rem 1rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.categories a:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.article section {
+  scroll-margin-top: 1.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.article h3 {
+  margin-top: 1.75rem;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* ==========================================================
+   Topic pages: breadcrumb, photos, timeline, topic links
+   ========================================================== */
+
+/* Breadcrumb shows where you are: Hub / Topic */
+.breadcrumb {
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.breadcrumb a {
+  color: var(--gold);
+}
+
+.breadcrumb a:hover {
+  color: var(--teal);
+}
+
+/* Photos */
+.photo {
+  margin: 2rem 0 0;
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.photo figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Shown only while the image file is missing */
+.photo:not(:has(img))::before {
+  content: "Add photo: " attr(data-file);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+  background: var(--card);
+  border: 1px dashed var(--gold);
+  border-radius: 6px;
+}
+
+/* Timeline (used for real sequences, like how consoles evolved) */
+.article .timeline {
+  list-style: none;
+  margin: 1.75rem 0 0 0.5rem;
+  padding-left: 0;
+  border-left: 1px solid var(--gold);
+}
+
+.article .timeline li {
+  position: relative;
+  margin-top: 0;
+  padding: 0 0 1.5rem 1.75rem;
+}
+
+.article .timeline li::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 0.55rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--teal) 50%, transparent);
+}
+
+.timeline .year {
+  display: block;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.15rem;
+  color: var(--gold);
+}
+
+/* Clickable topics on the Smart Devices and Gaming pages */
+.topic {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--gold);
+  border-radius: 6px;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.topic:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 28px color-mix(in srgb, var(--teal) 12%, transparent);
+}
+
+.article .topic h2,
+.article .topic h3 {
+  margin-top: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.article .topic h2 {
+  font-size: 1.5rem;
+}
+
+.article .topic h3 {
+  color: var(--gold);
+}
+
+.article h2 a:hover,
+.article h3 a:hover {
+  color: var(--teal);
+}
+
+.article .topic p {
+  margin-top: 0.5rem;
+}
+
+.article section > .read-more {
+  margin-top: 0.75rem;
+}
+
+/* ==========================================================
+   Page themes
+   Homepage keeps the default gold look. Each section below
+   overrides the color variables set at the top of this file.
+   ========================================================== */
+
+/* Smart Devices: deep navy with ice-blue accent */
+body.theme-smart {
+  --bg: #0A0F1A;
+  --card: #121A2B;
+  --border: #22304A;
+  --gold: #8FB8FF;
+  --teal: #5EEAD4;
+}
+
+/* AI: deep violet with lilac accent */
+body.theme-ai {
+  --bg: #0E0A17;
+  --card: #181226;
+  --border: #2E2445;
+  --gold: #B79CFF;
+  --teal: #F0ABFC;
+}
+
+/* Gaming: near-black with ember red accent */
+body.theme-gaming {
+  --bg: #0D0B0B;
+  --card: #171313;
+  --border: #2E2424;
+  --gold: #FF6B5A;
+  --teal: #FBBF24;
+}
